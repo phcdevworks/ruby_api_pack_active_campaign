@@ -3,36 +3,23 @@
 module RubyApiPackActiveCampaign
   module Connection
     class AcConnect
-      attr_reader :ac_api_url, :ac_api_token
+      attr_reader :ac_api_url_base, :ac_api_path
 
-      def initialize(config = RubyApiPackActiveCampaign::AcConfiguration.new)
-        @ac_api_url = config.ac_api_url
-        @ac_api_token = config.ac_api_token
+      def initialize(ac_api_url_base, ac_api_path)
+        @ac_api_url_base = ac_api_url_base
+        @ac_api_path = ac_api_path
       end
 
-      def ac_api_connection
-        response = HTTParty.get(
-          "#{@ac_api_url}/users/me", # Or another endpoint
-          headers: { 'Api-Token' => @ac_api_token }
+      def ac_post_api_connection(payload)
+        response = HTTParty.post(
+          "#{@ac_api_url_base}#{@ac_api_path}",
+          headers: {
+            'Api-Token' => RubyApiPackActiveCampaign.configuration.ac_api_token,
+            'Content-Type' => 'application/json'
+          },
+          body: payload.to_json
         )
         handle_response(response)
-      end
-
-      private
-
-      def handle_response(response)
-        case response.code
-        when 200
-          parse_response(response)
-        else
-          raise "Error: Received status #{response.code}"
-        end
-      end
-
-      def parse_response(response)
-        Oj.load(response.body)
-      rescue Oj::ParseError => e
-        raise "Error parsing response: #{e.message}"
       end
     end
   end
