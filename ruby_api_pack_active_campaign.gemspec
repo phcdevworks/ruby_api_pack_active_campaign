@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative "lib/ruby_api_pack_active_campaign/version"
+require_relative 'lib/ruby_api_pack_active_campaign/version'
 
 Gem::Specification.new do |spec|
-  spec.name = "ruby_api_pack_active_campaign"
+  spec.name = 'ruby_api_pack_active_campaign'
   spec.version = RubyApiPackActiveCampaign::VERSION
   spec.authors     = ['PHCDevworks', 'Brad Potts']
   spec.email       = ['info@phcdevworks.com', 'brad.potts@phcdevworks.com']
@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.license     = 'MIT'
 
   # Specify the required Ruby version
-  spec.required_ruby_version = ">= 3.0.0"
+  spec.required_ruby_version = '>= 3.0.0'
 
   # Gem Meta Data
   spec.metadata['allowed_push_host'] = 'https://rubygems.org/'
@@ -29,9 +29,9 @@ Gem::Specification.new do |spec|
         f.start_with?(*%w[bin/ test/ spec/ features/ .git .github appveyor Gemfile])
     end
   end
-  spec.bindir = "exe"
+  spec.bindir = 'exe'
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['lib']
 
   # Main Dependencies
   spec.add_dependency 'httparty', '~> 0.22.0'
