@@ -21,6 +21,25 @@ module RubyApiPackActiveCampaign
         )
         handle_response(response)
       end
+
+      private
+
+      # General response handler
+      def handle_response(response)
+        case response.code
+        when 200..299
+          parse_response(response)
+        else
+          raise "API Request failed with status #{response.code}: #{response.body}"
+        end
+      end
+
+      # Parsing response to JSON format
+      def parse_response(response)
+        JSON.parse(response.body)
+      rescue JSON::ParserError => e
+        raise "Error parsing response: #{e.message}"
+      end
     end
   end
 end
