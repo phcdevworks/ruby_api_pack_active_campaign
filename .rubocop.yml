@@ -44,6 +44,9 @@ Layout/LineLength:
   AllowHeredoc: true
   AllowURI: true
 
+Layout/TrailingEmptyLines:
+  Enabled: true
+
 Metrics/MethodLength:
   Max: 20
 
