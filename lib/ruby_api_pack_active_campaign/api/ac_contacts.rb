@@ -3,31 +3,33 @@
 module RubyApiPackActiveCampaign
   module Api
     class AcContacts
-      # Fetch a specific contact by ID
-      def self.ac_contact_by_id(contact_id)
-        fetch_contact("/contacts/#{contact_id}")
+      def self.contact_by_id(contact_id)
+        fetch_resource("/contacts/#{contact_id}")
       end
 
-      # Create a new contact
-      def self.ac_create_contact(contact_params)
-        post_contact('/contacts', contact_params)
+      def self.contact_list
+        fetch_resource('/contacts')['contacts']
       end
 
-      private
+      def self.create_contact(contact_params)
+        post_resource('/contacts', contact_params)
+      end
 
-      def self.fetch_contact(endpoint)
+      def self.fetch_resource(endpoint)
         Connection::AcConnect.new(
           RubyApiPackActiveCampaign.configuration.ac_api_url,
           endpoint
         ).activecampaign_api_connection
       end
 
-      def self.post_contact(endpoint, contact_params)
+      def self.post_resource(endpoint, params)
         Connection::AcConnect.new(
           RubyApiPackActiveCampaign.configuration.ac_api_url,
           endpoint
-        ).ac_post_api_connection(contact_params)
+        ).ac_post_api_connection(params)
       end
+
+      private_class_method :fetch_resource, :post_resource
     end
   end
 end

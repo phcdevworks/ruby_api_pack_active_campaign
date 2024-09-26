@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module RubyApiPackActiveCampaign
-  class AcConfiguration
+  class Configuration
     attr_accessor :ac_api_url, :ac_api_token
 
     def initialize
