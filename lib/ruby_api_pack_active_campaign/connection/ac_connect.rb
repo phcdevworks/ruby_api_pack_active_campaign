@@ -24,7 +24,6 @@ module RubyApiPackActiveCampaign
 
       private
 
-      # General response handler
       def handle_response(response)
         case response.code
         when 200..299
@@ -34,7 +33,6 @@ module RubyApiPackActiveCampaign
         end
       end
 
-      # Parsing response to JSON format
       def parse_response(response)
         JSON.parse(response.body)
       rescue JSON::ParserError => e

@@ -15,11 +15,13 @@ module RubyApiPackActiveCampaign
         post_resource('/contacts', contact_params)
       end
 
+      private
+
       def self.fetch_resource(endpoint)
         Connection::AcConnect.new(
           RubyApiPackActiveCampaign.configuration.ac_api_url,
           endpoint
-        ).activecampaign_api_connection
+        ).ac_post_api_connection({})
       end
 
       def self.post_resource(endpoint, params)

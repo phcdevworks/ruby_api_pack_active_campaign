@@ -11,10 +11,9 @@ RSpec.describe RubyApiPackActiveCampaign::Connection::AcConnect do
   let(:http_response) { instance_double(HTTParty::Response, code: 200, body: '{"message": "Success"}') }
 
   before do
-    # Mock the configuration to set the API token
-    allow(RubyApiPackActiveCampaign).to receive(:configuration).and_return(double(ac_api_token: ac_token))
-
-    # Stub the request to Active Campaign API
+    allow(RubyApiPackActiveCampaign).to receive(:configuration).and_return(
+      instance_double(RubyApiPackActiveCampaign::Configuration, ac_api_token: ac_token)
+    )
     allow(HTTParty).to receive(:post).and_return(http_response)
   end
 
