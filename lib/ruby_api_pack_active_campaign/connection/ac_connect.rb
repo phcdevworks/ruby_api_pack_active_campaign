@@ -10,6 +10,7 @@ module RubyApiPackActiveCampaign
         @ac_api_path = ac_api_path
       end
 
+      # POST request
       def ac_post_api_connection(payload)
         response = HTTParty.post(
           "#{@ac_api_url_base}#{@ac_api_path}",
@@ -18,6 +19,41 @@ module RubyApiPackActiveCampaign
             'Content-Type' => 'application/json'
           },
           body: payload.to_json
+        )
+        handle_response(response)
+      end
+
+      # GET request
+      def ac_get_api_connection
+        response = HTTParty.get(
+          "#{@ac_api_url_base}#{@ac_api_path}",
+          headers: {
+            'Api-Token' => RubyApiPackActiveCampaign.configuration.ac_api_token
+          }
+        )
+        handle_response(response)
+      end
+
+      # PUT request
+      def ac_put_api_connection(payload)
+        response = HTTParty.put(
+          "#{@ac_api_url_base}#{@ac_api_path}",
+          headers: {
+            'Api-Token' => RubyApiPackActiveCampaign.configuration.ac_api_token,
+            'Content-Type' => 'application/json'
+          },
+          body: payload.to_json
+        )
+        handle_response(response)
+      end
+
+      # DELETE request
+      def ac_delete_api_connection
+        response = HTTParty.delete(
+          "#{@ac_api_url_base}#{@ac_api_path}",
+          headers: {
+            'Api-Token' => RubyApiPackActiveCampaign.configuration.ac_api_token
+          }
         )
         handle_response(response)
       end
