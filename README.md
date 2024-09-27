@@ -8,7 +8,7 @@
 
 ![Issues](https://img.shields.io/github/issues/phcdevworks/ruby_api_pack_active_campaign.svg)
 ![Dependabot Status](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg?logo=dependabot)
-[![codecov](https://codecov.io/gh/phcdevworks/ruby_api_pack_active_campaign/graph/badge.svg?token=BEEHE8A5D1)](https://codecov.io/gh/phcdevworks/ruby_api_pack_active_campaign)
+[![codecov](https://codecov.io/gh/phcdevworks/ruby_api_pack_active_campaign/graph/badge.svg?token=QatALQbsJ5)](https://codecov.io/gh/phcdevworks/ruby_api_pack_active_campaign)
 ![Build Status](https://github.com/phcdevworks/ruby_api_pack_active_campaign/actions/workflows/test.yml/badge.svg)
 [![CodeQL](https://github.com/phcdevworks/ruby_api_pack_active_campaign/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/phcdevworks/ruby_api_pack_active_campaign/actions/workflows/github-code-scanning/codeql)
 ![Gem Version](https://img.shields.io/gem/v/ruby_api_pack_active_campaign.svg)
