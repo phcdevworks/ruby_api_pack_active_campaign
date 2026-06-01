@@ -23,7 +23,7 @@ RSpec.configure do |config|
   config.before(:suite) do
     RubyApiPackActiveCampaign::Configuration.new.tap do |c|
       c.ac_api_url = ENV['AC_API_URL'] || 'https://youraccountname.api-us1.com/api/3'
-      c.ac_api_token = ENV['AC_API_TOKEN']
+      c.ac_api_token = ENV.fetch('AC_API_TOKEN', nil)
     end
   end
   config.example_status_persistence_file_path = '.rspec_status'
@@ -32,12 +32,12 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
   config.before do
-    puts "AC_API_URL: #{ENV['AC_API_URL']}"
-    puts "AC_API_TOKEN: #{ENV['AC_API_TOKEN']}"
+    api_url = ENV.fetch('AC_API_URL', 'https://youraccountname.api-us1.com/api/3')
+    api_token = ENV.fetch('AC_API_TOKEN', nil)
 
-    stub_request(:any, /#{Regexp.quote(ENV['AC_API_URL'] || 'https://youraccountname.api-us1.com/api/3')}.*/)
+    stub_request(:any, /#{Regexp.quote(api_url)}.*/)
       .with(
-        headers: { 'Api-Token' => ENV['AC_API_TOKEN'] }
+        headers: { 'Api-Token' => api_token }
       ).to_return(status: 200, body: '{"message": "Success"}', headers: {})
   end
 end

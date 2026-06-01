@@ -1,20 +1,19 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
-
+about: Suggest a Ruby gem or ActiveCampaign API helper improvement
+labels: enhancement
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+## Problem
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+## Proposal
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+## ActiveCampaign Area
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+- Resource: contacts / lists / automations / accounts / notes / other
+- Expected endpoint path:
+- Additive or breaking:
+
+## Alternatives Considered
+
+## Additional Context
