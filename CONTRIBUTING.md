@@ -1,168 +1,118 @@
-# Contributing to RubyApiPackActiveCampaign
+# Contributing to Ruby API Pack ActiveCampaign
 
-Thank you for considering contributing to our Active Campaign API integration project! We appreciate your help in improving this project and following these guidelines to maintain code quality and consistency.
+Thanks for helping improve `ruby_api_pack_active_campaign`. This gem is
+maintained by PHCDevworks as a Ruby client for ActiveCampaign API helpers.
 
-## Table of Contents
+## Development Setup
 
-1. [Project Setup](#project-setup)
-2. [Code Standards](#code-standards)
-3. [Commit Messages](#commit-messages)
-4. [Pull Requests](#pull-requests)
-5. [Testing](#testing)
-6. [Reporting Issues](#reporting-issues)
-7. [Code of Conduct](#code-of-conduct)
-
-## Project Setup
-
-To contribute, please follow these steps to set up the development environment.
-
-### 1. Fork the Repository
-
-First, fork the repository to your GitHub account and clone it locally.
+1. Clone the repository.
+2. Install dependencies with `bundle install`.
+3. Configure test credentials with non-production values when needed:
 
 ```bash
-git clone git@github.com:your-username/ruby_api_pack_active_campaign.git
-cd ruby_api_pack_active_campaign
+export AC_API_URL="https://youraccountname.api-us1.com/api/3"
+export AC_API_TOKEN="test-token"
 ```
 
-### 2. Install Dependencies
+4. Run `bundle exec rspec`.
+5. Run `bundle exec rubocop`.
+6. Build the gem with `gem build ruby_api_pack_active_campaign.gemspec` when
+   preparing a release or changing packaging metadata.
 
-Install the required dependencies using `bundler`.
+## Project Structure
 
-```bash
-bundle install
-```
+- `lib/ruby_api_pack_active_campaign.rb`: public gem entry point
+- `lib/ruby_api_pack_active_campaign/configuration.rb`: API URL and token
+  configuration
+- `lib/ruby_api_pack_active_campaign/connection/`: HTTParty connection wrapper
+- `lib/ruby_api_pack_active_campaign/api/`: ActiveCampaign API helper methods
+- `lib/ruby_api_pack_active_campaign/version.rb`: gem version
+- `spec/`: RSpec coverage for configuration, connection, and API helpers
 
-### 3. Set Up Active Campaign Credentials
+## Contribution Guidelines
 
-You'll need valid Active Campaign API credentials to run the application. Configure these credentials using the gem's configuration block:
+### API helper changes
 
-```ruby
-RubyApiPackActiveCampaign.configure do |config|
-  config.ac_api_url = '<YOUR_ACTIVECAMPAIGN_API_URL>'
-  config.ac_api_token = '<YOUR_ACTIVECAMPAIGN_API_KEY>'
-end
-```
+1. Keep public helper names stable unless the change is intentionally breaking.
+2. Add or update focused specs for any endpoint path, HTTP verb, request body,
+   or response behavior change.
+3. Keep ActiveCampaign SDK or HTTP access centralized in the connection layer.
+4. Pass payloads through in shapes that match ActiveCampaign's documented API.
+5. Update `README.md` when public usage changes.
 
-### 4. Run the Tests
+### Connection and configuration changes
 
-Ensure that everything is working by running the test suite.
+1. Keep token and base URL handling behind
+   `RubyApiPackActiveCampaign.configure`.
+2. Do not log API tokens, request payloads with sensitive contact data, or full
+   ActiveCampaign responses by default.
+3. Keep response parsing and error behavior covered by specs.
+4. Preserve backward compatibility unless the changelog and PR clearly classify
+   a breaking change.
 
-```bash
-bundle exec rspec
-```
+### Code and tooling
 
-## Code Standards
+- Follow the repo's RuboCop configuration.
+- Prefer small, pattern-aligned changes.
+- Keep comments brief and only add them when they explain a non-obvious reason.
+- Preserve unrelated local changes.
+- Do not create commits, tags, releases, or publish gems unless explicitly
+  asked by a maintainer.
 
-We follow Ruby best practices and conventions. Ensure your code adheres to the following:
+## Behavior-Impacting Change Checklist
 
-### 1. Linting
+Use this checklist when touching any public behavior surface:
 
-Before submitting any code, run `rubocop` to ensure it adheres to our style guidelines.
+- `lib/ruby_api_pack_active_campaign.rb`
+- `lib/ruby_api_pack_active_campaign/configuration.rb`
+- `lib/ruby_api_pack_active_campaign/connection/`
+- `lib/ruby_api_pack_active_campaign/api/`
+- `README.md`
 
-### 2. Code Format
+Before merge:
 
-```bash
-bundle exec rubocop
-```
+1. Update or add focused specs.
+2. Run `bundle exec rspec`.
+3. Run `bundle exec rubocop`.
+4. Build with `gem build ruby_api_pack_active_campaign.gemspec` when packaging
+   metadata changed.
+5. Update `README.md` if installation, configuration, endpoint, or usage
+   guidance changed.
+6. Update `CHANGELOG.md` under `[Unreleased]`.
+7. Classify the change as additive, behavior change, breaking, or docs/config
+   only in the pull request.
+8. Confirm no ActiveCampaign API tokens, production account URLs, contact data,
+   or other sensitive identifiers appear in logs, fixtures, docs, or examples.
 
-If there are any issues, please resolve them before submitting your pull request.
+## Pull Request Checklist
 
-### 2. Code Format
+1. Keep the change focused.
+2. Fill out every section of `.github/pull_request_template.md`.
+3. Link an issue or write `N/A`.
+4. Include a concise summary and reviewer notes.
+5. Leave blocked checklist items unchecked with a short note.
 
-- **Ruby Version**: Ensure that your code is compatible with Ruby version `>= 3.1.0`.
-- **Rails Version**: This project uses Rails `7.x`. Make sure your changes are compatible.
-- **Style**: Follow the [Ruby community style guide](https://rubystyle.guide).
+## Release Hygiene
 
-### 3. Code Organization
+For maintainers, a release should keep these records aligned:
 
-- Place any new services in the `lib/ruby_api_pack_active_campaign/` folder.
-- Follow the same structure for methods in service classes and modules, ensuring maintainability across features.
-- Keep code DRY (Don’t Repeat Yourself). If something is reusable, refactor it into a shared method or module.
+1. Update `lib/ruby_api_pack_active_campaign/version.rb`.
+2. Move relevant `CHANGELOG.md` `[Unreleased]` notes into a dated version entry.
+3. Run `bundle exec rspec`.
+4. Run `bundle exec rubocop`.
+5. Build the gem from the matching source state.
+6. Publish release notes from the matching changelog entry.
 
-## Commit Messages
+## Questions
 
-A good commit message provides clarity and context for the changes made. Follow these guidelines for commit messages:
-
-- Use present tense: "Add feature" instead of "Added feature".
-- Limit the subject line to 50 characters.
-- Provide a detailed description if necessary.
-- Reference any related issues by number.
-
-### Example Commit Message
-
-```md
-Add contact list fetch functionality for Active Campaign API
-
-- Implement `ac_contacts` method in AcContacts class
-- Add corresponding tests in `ac_contacts_spec.rb`
-- Update API connection class to handle new endpoint
-
-Fixes #15
-```
-
-## Pull Requests
-
-When you're ready to submit your changes, please follow these steps:
-
-### 1. Create a Branch
-
-Work on a separate branch that describes the feature or fix.
-
-```bash
-git checkout -b feature/add-provider-list
-```
-
-### 2. Test Your Changes
-
-Ensure all tests pass before submitting your pull request (PR).
-
-```bash
-bundle exec rspec
-```
-
-### 3. Submit the PR
-
-When your changes are ready, push your branch to GitHub and open a pull request. Make sure to:
-
-- Provide a descriptive title.
-- Reference any related issues.
-- Include details of the changes you’ve made and any necessary context.
-
-### 4. Respond to Feedback
-
-The maintainers may request changes. Be ready to address them.
-
-## Testing
-
-Before submitting a PR, ensure the test suite passes. We use RSpec for unit and integration testing. Follow these steps:
-
-### 1. Run Tests
-
-Ensure that the test suite runs and passes.
-
-```bash
-bundle exec rspec
-```
-
-### 2. Write Tests
-
-Any new functionality should include corresponding tests. Tests are located in the `spec/` folder, and you should follow the structure already in place for:
-
-- **Modules**: Place new tests in `spec/api/`.
-
-### 3. Test Coverage
-
-Ensure that your code is well-covered by tests.
-
-## Reporting Issues
-
-If you encounter any bugs or have feature requests, please [open an issue](https://github.com/phcdevworks/ruby_api_pack_active_campaign/issues). When reporting, please include:
-
-- A clear title and description.
-- Steps to reproduce the issue.
-- Any relevant logs or error messages.
+Open an issue if you need direction before making a larger change.
 
 ## Code of Conduct
 
-Please read and follow our [Code of Conduct](https://github.com/phcdevworks/ruby_api_pack_active_campaign/blob/main/CODE_OF_CONDUCT.md) to ensure a welcoming and inclusive environment for everyone.
+By participating in this project, you agree to follow the
+[Code of Conduct](CODE_OF_CONDUCT.md).
+
+## License
+
+By contributing, you agree that your contributions will be licensed under the
+MIT License.
