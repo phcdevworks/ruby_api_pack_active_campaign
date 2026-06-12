@@ -1,5 +1,41 @@
 # Ruby API Pack ActiveCampaign
 
+## Repository Snapshot
+
+| Field | Value |
+|-------|-------|
+| Project team | `project-ruby` |
+| Repository role | ActiveCampaign API client |
+| Package/artifact | `ruby_api_pack_active_campaign` |
+| Current version/status | 0.1.0 |
+
+## Standard Workflow
+
+1. Read [AGENTS.md](AGENTS.md), then the agent-specific guide for the task.
+2. Check [TODO.md](TODO.md) and [ROADMAP.md](ROADMAP.md) for current scope.
+3. Make the smallest repo-local change that satisfies the task.
+4. Run `bundle exec rspec`, `bundle exec rubocop`, and
+   `gem build ruby_api_pack_active_campaign.gemspec` when validation is
+   required or practical.
+5. Update docs and changelog history only when behavior, public contracts, or
+   release-relevant metadata changed.
+
+## Documentation Map
+
+| Guide | Path |
+|-------|------|
+| Agent rules | [AGENTS.md](AGENTS.md) |
+| Claude Code | [CLAUDE.md](CLAUDE.md) |
+| Codex | [CODEX.md](CODEX.md) |
+| Copilot | [COPILOT.md](COPILOT.md) |
+| Jules | [JULES.md](JULES.md) |
+| Roadmap | [ROADMAP.md](ROADMAP.md) |
+| Todo | [TODO.md](TODO.md) |
+| Changelog | [CHANGELOG.md](CHANGELOG.md) |
+| Security | [SECURITY.md](SECURITY.md) |
+| Code of Conduct | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) |
+| Contributing | [CONTRIBUTING.md](CONTRIBUTING.md) |
+
 [![Gem Version](https://img.shields.io/gem/v/ruby_api_pack_active_campaign.svg)](https://rubygems.org/gems/ruby_api_pack_active_campaign)
 [![RSpec](https://github.com/phcdevworks/ruby_api_pack_active_campaign/actions/workflows/test.yml/badge.svg)](https://github.com/phcdevworks/ruby_api_pack_active_campaign/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/phcdevworks/ruby_api_pack_active_campaign/graph/badge.svg?token=QatALQbsJ5)](https://codecov.io/gh/phcdevworks/ruby_api_pack_active_campaign)
