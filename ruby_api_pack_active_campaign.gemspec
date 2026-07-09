@@ -36,5 +36,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   # Main Dependencies
-  spec.add_dependency 'httparty', '~> 0.22.0'
+  spec.add_dependency 'httparty', '>= 0.22', '< 0.25'
 end
