@@ -28,7 +28,7 @@ Include:
 
 ## Security Guidance
 
-- Keep Ruby, Bundler, HTTParty, Oj, and development dependencies up to date.
+- Keep Ruby, Bundler, HTTParty, and development dependencies up to date.
 - Do not expose ActiveCampaign API tokens, production account URLs, contact
   data, request payloads, or full response bodies in logs or examples.
 - Store API credentials through Rails encrypted credentials, environment

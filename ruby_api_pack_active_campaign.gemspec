@@ -37,5 +37,4 @@ Gem::Specification.new do |spec|
 
   # Main Dependencies
   spec.add_dependency 'httparty', '~> 0.22.0'
-  spec.add_dependency 'oj', '~> 3.16'
 end

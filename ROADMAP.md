@@ -15,14 +15,16 @@ client gem for ActiveCampaign. It is planning context, not a release promise.
 - Expand README examples for common Rails initializer usage.
 - Add clearer guidance for ActiveCampaign request payload shapes.
 - Review response and error handling for a typed error class.
-- Confirm supported Ruby versions across CI and gem metadata.
+- Confirm supported Ruby versions across CI and gem metadata (gemspec allows
+  `>= 3.0.0`; CI currently tests only 3.1 and 3.3.x).
 - Add specs for any helper methods that are not covered by endpoint-path
   assertions.
+- Evaluate additional ActiveCampaign resource groups (lists, tags, deals,
+  automations) now that the project is being actively revived — contact
+  workflows are the only resource group implemented today.
 
 ## Later
 
-- Evaluate additional ActiveCampaign resource groups after contact workflows are
-  stable.
 - Consider separate modules for automations, lists, accounts, and notes if the
   helper surface grows.
 - Add pagination guidance for list endpoints.
