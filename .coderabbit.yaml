@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "en-US"
+early_access: false
+reviews:
+  profile: "assertive"
+  request_changes_workflow: false
+  high_level_summary: true
+  high_level_summary_placeholder: "@coderabbitai summary"
+  auto_title_placeholder: "@coderabbitai"
+  review_status: true
+  commit_status: true
+  collapse_walkthrough: false
+  changed_files_summary: true
+  sequence_diagrams: true
+  assess_linked_issues: true
+  related_issues: true
+  related_prs: true
+  suggested_labels: true
+  auto_apply_labels: false
+  suggested_reviewers: false
+  poem: false
+  abort_on_close: true
+  auto_review:
+    enabled: true
+    auto_incremental_review: true
+    drafts: false
+  finishing_touches:
+    docstrings:
+      enabled: true
+  tools:
+    rubocop:
+      enabled: true
+    markdownlint:
+      enabled: true
+    gitleaks:
+      enabled: true
+    github-checks:
+      enabled: true
+      timeout_ms: 90000
+    yamllint:
+      enabled: true
+    languagetool:
+      enabled: true
+      level: default
+    actionlint:
+      enabled: true
+    semgrep:
+      enabled: true
+  path_instructions:
+    - path: "**/*.rb"
+      instructions: "Apply Ruby best practices. Flag: missing frozen_string_literal: true magic comment; unhandled HTTParty response error paths; Law of Demeter violations. Verify class methods follow single-responsibility and don't leak HTTP concerns outside the connection wrapper."
+    - path: "lib/ruby_api_pack_active_campaign/connection/**"
+      instructions: "Centralized HTTP behavior. Verify all HTTParty calls set the Api-Token header from configuration (never hardcoded), JSON parsing failures are handled distinctly from non-2xx responses, and no request or response body is logged directly."
+    - path: "lib/ruby_api_pack_active_campaign/api/**"
+      instructions: "Public ActiveCampaign helper surface. Flag any new or changed endpoint path, HTTP verb, or payload shape that isn't reflected in the README.md Public API Helpers table and covered by a delegation spec in spec/."
+    - path: "lib/ruby_api_pack_active_campaign/configuration.rb"
+      instructions: "Verify API URL and token remain configurable through RubyApiPackActiveCampaign.configure and are never defaulted to a real ActiveCampaign account or token value."
+    - path: "spec/**"
+      instructions: "Enforce RSpec best practices: descriptive describe/context/it blocks, let over instance variables, and expectations that verify behavior rather than internal state. Flag missing coverage for non-2xx and JSON-parse-failure response paths, and any fixture containing realistic-looking API tokens or contact data."
+    - path: "Gemfile"
+      instructions: "Flag overly permissive version constraints (>= x with no upper bound). Ensure test and development gems are in the correct group. Verify no gems with known CVEs are being introduced."
+    - path: "*.gemspec"
+      instructions: "Verify required_ruby_version is set, runtime dependencies are actually used in lib/ (no orphaned dependencies), summary and description are informative, and version follows semver."
+    - path: "CHANGELOG.md"
+      instructions: "Verify entries follow Keep a Changelog format with correct categorization (Added/Changed/Fixed/Removed) and link to a version tag."
+chat:
+  auto_reply: true
+knowledge_base:
+  opt_out: false
+  learnings:
+    scope: auto
+  issues:
+    scope: auto
+  pull_requests:
+    scope: auto
