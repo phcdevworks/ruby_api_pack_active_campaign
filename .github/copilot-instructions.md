@@ -20,19 +20,35 @@ authority.
 - Keep ActiveCampaign credentials configurable.
 - Add focused RSpec coverage for connection and API helper behavior changes.
 - Keep README and changelog aligned with public usage.
+
+## Working Style
+
+- Prefer narrow, pattern-aligned changes.
+- Keep docs and specs in sync when behavior changes.
+- Preserve unrelated local changes.
 - Do not create commits unless explicitly asked.
+
+## Validation
+
+- Run `bundle exec rspec` for behavior changes.
+- Run `bundle exec rubocop` before handoff.
+- Build the gem when release packaging changes.
 
 ## Security
 
 Never add real ActiveCampaign API tokens, production account URLs, contact data,
 request payloads, or sensitive response bodies to source control.
 
-## Validation
+## Pull Request Creation
 
-```bash
-bundle exec rspec
-bundle exec rubocop
-```
+When opening a PR, populate every section of the repo's PR template:
+
+- Linked issue - issue number (`#N`) or `N/A`
+- Summary of changes - one or two bullets
+- Change classification - additive, behavior change, breaking, or docs/config only
+- Checklist - completed items checked; blocked items left unchecked with a brief note
+
+Never submit a PR with an empty body or only template headings.
 
 ## References
 
