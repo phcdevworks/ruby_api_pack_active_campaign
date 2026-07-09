@@ -36,6 +36,19 @@ When reviewing a PR, Codex checks:
 5. README or changelog drift from public behavior.
 6. CI and release workflow mismatch with documented commands.
 
+## Issue Triage Scope
+
+Codex triages issues related to:
+
+- Documentation inconsistencies
+- Release process questions
+- Changelog or versioning questions
+- CI and validation failures
+- Repo hygiene and configuration standardization
+
+Implementation issues involving new ActiveCampaign resource groups or behavior
+changes should be directed to Claude Code.
+
 ## Validation Commands
 
 ```bash
