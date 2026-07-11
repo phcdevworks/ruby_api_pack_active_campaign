@@ -10,6 +10,13 @@ This repository is a Ruby gem that wraps ActiveCampaign API calls for
 PHCDevworks applications. This file is the implementation guide for Claude Code.
 Read `AGENTS.md` first for shared agent boundaries.
 
+This gem depends on `ruby_api_pack_core` for its connection wrapper base class
+(`RubyApiPackCore::Connection::Base`), response validator
+(`RubyApiPackCore::Handlers::ResponseValidator`), and configuration mixin
+(`RubyApiPackCore::Configurable`). Shared HTTP plumbing belongs upstream in
+`ruby_api_pack_core`, not duplicated here — see that repo's own `CLAUDE.md`
+before changing anything that looks like generic request/response handling.
+
 ## Commit Policy
 
 Claude Code does not create commits in this repository unless explicitly asked.
@@ -40,7 +47,9 @@ matching specs and a changelog entry.
 
 ## Implementation Rules
 
-1. Keep HTTParty calls inside the connection wrapper.
+1. Keep HTTParty calls inside the connection wrapper, which subclasses
+   `RubyApiPackCore::Connection::Base` — implement only `#auth_headers` there,
+   do not reimplement URL building, status handling, or JSON parsing locally.
 2. Keep API URL and token assumptions configurable through
    `RubyApiPackActiveCampaign.configure`.
 3. Preserve helper method names unless the change is intentionally breaking.
@@ -49,6 +58,10 @@ matching specs and a changelog entry.
 6. Do not expose API tokens, production account URLs, contact data, request
    payloads, or sensitive response bodies in logs, fixtures, docs, or test
    output.
+7. If a change requires modifying shared HTTP behavior (URL building, status
+   handling, JSON parsing, response validation, or the `configure` pattern),
+   make that change in `ruby_api_pack_core` instead, and coordinate the
+   version bump here.
 
 ## Testing Expectations
 

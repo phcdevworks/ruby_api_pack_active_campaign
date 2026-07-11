@@ -8,36 +8,14 @@ SimpleCov.start do
   enable_coverage :branch
 end
 
-require 'ruby_api_pack_active_campaign'
-require 'vcr'
-require 'webmock/rspec'
-
-VCR.configure do |config|
-  config.cassette_library_dir = 'spec/vcr_cassettes'
-  config.hook_into :webmock
-  config.configure_rspec_metadata!
-  config.allow_http_connections_when_no_cassette = true
-end
-
 RSpec.configure do |config|
-  config.before(:suite) do
-    RubyApiPackActiveCampaign::Configuration.new.tap do |c|
-      c.ac_api_url = ENV['AC_API_URL'] || 'https://youraccountname.api-us1.com/api/3'
-      c.ac_api_token = ENV.fetch('AC_API_TOKEN', nil)
-    end
-  end
   config.example_status_persistence_file_path = '.rspec_status'
   config.disable_monkey_patching!
+
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
-  config.before do
-    api_url = ENV.fetch('AC_API_URL', 'https://youraccountname.api-us1.com/api/3')
-    api_token = ENV.fetch('AC_API_TOKEN', nil)
 
-    stub_request(:any, /#{Regexp.quote(api_url)}.*/)
-      .with(
-        headers: { 'Api-Token' => api_token }
-      ).to_return(status: 200, body: '{"message": "Success"}', headers: {})
-  end
+  config.order = :random
+  Kernel.srand config.seed
 end
