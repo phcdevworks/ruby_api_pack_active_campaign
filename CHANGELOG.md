@@ -6,10 +6,17 @@ reflects gem releases published to RubyGems.
 
 ## [Unreleased]
 
-Change type: dependency/CI cleanup + docs
+Change type: dependency/CI cleanup + docs + architecture alignment
 
 ### Added
 
+- Added a runtime dependency on `ruby_api_pack_core` (`~> 0.1`), the new
+  shared HTTP client foundation gem for all `ruby_api_pack_*` packs. All
+  `RubyApiPackActiveCampaign::Api::AcContacts` methods now validate their
+  response shape (`expected_type: :hash`) via
+  `RubyApiPackCore::Handlers::ResponseValidator`, aligning this gem's
+  response-shape validation with `ruby_api_pack_wordpress` and
+  `ruby_api_pack_cloudways`.
 - Added standardized PHCDevworks AI operating guides for shared agent behavior,
   Codex, Claude Code, Copilot, and Jules.
 - Added roadmap and TODO planning documents for ActiveCampaign gem
@@ -19,6 +26,23 @@ Change type: dependency/CI cleanup + docs
 
 ### Changed
 
+- **Breaking (internal only):** Rewrote
+  `RubyApiPackActiveCampaign::Connection::AcConnect` to subclass
+  `RubyApiPackCore::Connection::Base`, inheriting shared URL building,
+  `200..299` status handling, `Oj`-based JSON parsing with a content-type
+  guard, and `api_get`/`api_post`/`api_put`/`api_delete` method names
+  (renamed from `ac_get_api_connection`/`ac_post_api_connection`/
+  `ac_put_api_connection`/`ac_delete_api_connection`). `AcConnect` now only
+  implements `#auth_headers`. Public `RubyApiPackActiveCampaign::Api::AcContacts`
+  method names are unchanged. This supersedes an earlier unreleased pass that
+  added a gem-local `handlers/response_validator.rb` and `ac_api_*`-named
+  connection methods — both are now delegated to `ruby_api_pack_core` instead.
+- Removed the gem-local `RubyApiPackActiveCampaign::Handlers::ResponseValidator`
+  module and the direct `httparty`/`oj` gemspec dependencies — both now come
+  from `ruby_api_pack_core`.
+- `RubyApiPackActiveCampaign.configure`/`.configuration` now come from
+  `RubyApiPackCore::Configurable` instead of a gem-local implementation;
+  behavior is unchanged.
 - Reworked README, contributing, security, and issue guidance around this gem's
   ActiveCampaign client responsibilities.
 - Corrected the README project identity from a Cloudways label to

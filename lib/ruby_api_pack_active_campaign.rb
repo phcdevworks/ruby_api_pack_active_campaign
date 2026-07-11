@@ -1,18 +1,15 @@
 # frozen_string_literal: true
 
-require 'httparty'
+require 'ruby_api_pack_core'
 
 require_relative 'ruby_api_pack_active_campaign/configuration'
 require_relative 'ruby_api_pack_active_campaign/connection/ac_connect'
 require_relative 'ruby_api_pack_active_campaign/api/ac_contacts'
 
 module RubyApiPackActiveCampaign
-  class << self
-    attr_accessor :configuration
+  extend RubyApiPackCore::Configurable
 
-    def configure
-      self.configuration ||= Configuration.new
-      yield(configuration)
-    end
+  def self.configuration_class
+    Configuration
   end
 end

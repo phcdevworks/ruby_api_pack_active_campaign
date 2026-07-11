@@ -3,6 +3,10 @@
 source 'https://rubygems.org'
 gemspec
 
+# TODO: switch to the published RubyGems release once ruby_api_pack_core is
+# published; until then, develop against the sibling repo in this workspace.
+gem 'ruby_api_pack_core', path: '../ruby_api_pack_core'
+
 group :development, :test do
   gem 'bundler', '~> 2.5'
   gem 'capybara', '~> 3.40'
