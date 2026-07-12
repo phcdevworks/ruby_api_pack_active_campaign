@@ -9,7 +9,7 @@ group :development, :test do
   gem 'dotenv', '~> 2.8'
   gem 'factory_bot', '~> 6.4', '>= 6.4.6'
   gem 'faker', '~> 3.4', '>= 3.4.2'
-  gem 'rake', '~> 13.2'
+  gem 'rake', '~> 13.4'
   gem 'rspec', '~> 3.13'
   gem 'rspec_junit_formatter', '~> 0.6.0', require: false
   gem 'rubocop', '~> 1.64', require: false
