@@ -6,7 +6,7 @@ gemspec
 group :development, :test do
   gem 'bundler', '~> 2.5'
   gem 'capybara', '~> 3.40'
-  gem 'dotenv', '~> 2.8'
+  gem 'dotenv', '~> 3.2'
   gem 'factory_bot', '~> 6.4', '>= 6.4.6'
   gem 'faker', '~> 3.4', '>= 3.4.2'
   gem 'rake', '~> 13.2'

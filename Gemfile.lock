@@ -40,7 +40,7 @@ GEM
     csv (3.3.5)
     diff-lcs (1.5.1)
     docile (1.4.1)
-    dotenv (2.8.1)
+    dotenv (3.2.0)
     drb (2.2.1)
     factory_bot (6.5.0)
       activesupport (>= 5.0.0)
@@ -151,7 +151,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 2.5)
   capybara (~> 3.40)
-  dotenv (~> 2.8)
+  dotenv (~> 3.2)
   factory_bot (~> 6.4, >= 6.4.6)
   faker (~> 3.4, >= 3.4.2)
   rake (~> 13.2)
