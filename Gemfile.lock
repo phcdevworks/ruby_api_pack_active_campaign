@@ -1,11 +1,4 @@
 PATH
-  remote: ../ruby_api_pack_core
-  specs:
-    ruby_api_pack_core (0.1.0)
-      httparty (~> 0.22.0)
-      oj (~> 3.16)
-
-PATH
   remote: .
   specs:
     ruby_api_pack_active_campaign (0.1.0)
@@ -29,7 +22,7 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
     base64 (0.2.0)
-    bigdecimal (3.1.8)
+    bigdecimal (4.1.2)
     capybara (3.40.0)
       addressable
       matrix
@@ -54,7 +47,7 @@ GEM
     faker (3.4.2)
       i18n (>= 1.8.11, < 2)
     hashdiff (1.1.1)
-    httparty (0.22.0)
+    httparty (0.24.2)
       csv
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -104,6 +97,8 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.1)
+    rspec_junit_formatter (0.6.0)
+      rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (1.66.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -124,6 +119,9 @@ GEM
     rubocop-rspec (3.0.5)
       rubocop (~> 1.61)
     ruby-progressbar (1.13.0)
+    ruby_api_pack_core (0.1.0)
+      httparty (~> 0.24.2)
+      oj (~> 3.17)
     securerandom (0.3.1)
     simplecov (0.22.0)
       docile (~> 1.1)
@@ -158,12 +156,12 @@ DEPENDENCIES
   faker (~> 3.4, >= 3.4.2)
   rake (~> 13.2)
   rspec (~> 3.13)
+  rspec_junit_formatter (~> 0.6.0)
   rubocop (~> 1.64)
   rubocop-performance (~> 1.21)
   rubocop-rake (~> 0.6.0)
   rubocop-rspec (~> 3.0)
   ruby_api_pack_active_campaign!
-  ruby_api_pack_core!
   simplecov (~> 0.22.0)
   sqlite3 (~> 1.4)
   vcr (~> 6.2)
