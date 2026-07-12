@@ -3,10 +3,6 @@
 source 'https://rubygems.org'
 gemspec
 
-# TODO: switch to the published RubyGems release once ruby_api_pack_core is
-# published; until then, develop against the sibling repo in this workspace.
-gem 'ruby_api_pack_core', path: '../ruby_api_pack_core'
-
 group :development, :test do
   gem 'bundler', '~> 2.5'
   gem 'capybara', '~> 3.40'
@@ -15,6 +11,7 @@ group :development, :test do
   gem 'faker', '~> 3.4', '>= 3.4.2'
   gem 'rake', '~> 13.2'
   gem 'rspec', '~> 3.13'
+  gem 'rspec_junit_formatter', '~> 0.6.0', require: false
   gem 'rubocop', '~> 1.64', require: false
   gem 'rubocop-performance', '~> 1.21', require: false
   gem 'rubocop-rake', '~> 0.6.0', require: false

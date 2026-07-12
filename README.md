@@ -37,7 +37,7 @@
 | Contributing | [CONTRIBUTING.md](CONTRIBUTING.md) |
 
 [![Gem Version](https://img.shields.io/gem/v/ruby_api_pack_active_campaign.svg)](https://rubygems.org/gems/ruby_api_pack_active_campaign)
-[![RSpec](https://github.com/phcdevworks/ruby_api_pack_active_campaign/actions/workflows/test.yml/badge.svg)](https://github.com/phcdevworks/ruby_api_pack_active_campaign/actions/workflows/test.yml)
+[![CircleCI](https://img.shields.io/circleci/build/github/phcdevworks/ruby_api_pack_active_campaign/main.svg)](https://circleci.com/gh/phcdevworks/ruby_api_pack_active_campaign)
 [![codecov](https://codecov.io/gh/phcdevworks/ruby_api_pack_active_campaign/graph/badge.svg?token=QatALQbsJ5)](https://codecov.io/gh/phcdevworks/ruby_api_pack_active_campaign)
 [![License](https://img.shields.io/github/license/phcdevworks/ruby_api_pack_active_campaign.svg)](MIT-LICENSE)
 
