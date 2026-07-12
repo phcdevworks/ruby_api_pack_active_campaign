@@ -7,7 +7,7 @@
 | Project team | `project-ruby` |
 | Repository role | ActiveCampaign API client |
 | Package/artifact | `ruby_api_pack_active_campaign` |
-| Current version/status | 0.1.0 |
+| Current version/status | 0.2.0 |
 
 ## Standard Workflow
 
