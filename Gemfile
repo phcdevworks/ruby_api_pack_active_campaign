@@ -19,5 +19,5 @@ group :development, :test do
   gem 'simplecov', '~> 0.22.0', require: false
   gem 'sqlite3', '~> 1.4'
   gem 'vcr', '~> 6.2'
-  gem 'webmock', '~> 3.23'
+  gem 'webmock', '~> 3.26'
 end
