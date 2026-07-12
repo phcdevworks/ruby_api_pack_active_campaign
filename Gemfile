@@ -8,7 +8,7 @@ group :development, :test do
   gem 'capybara', '~> 3.40'
   gem 'dotenv', '~> 2.8'
   gem 'factory_bot', '~> 6.4', '>= 6.4.6'
-  gem 'faker', '~> 3.4', '>= 3.4.2'
+  gem 'faker', '~> 3.8'
   gem 'rake', '~> 13.2'
   gem 'rspec', '~> 3.13'
   gem 'rspec_junit_formatter', '~> 0.6.0', require: false
