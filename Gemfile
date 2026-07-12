@@ -12,7 +12,7 @@ group :development, :test do
   gem 'rake', '~> 13.2'
   gem 'rspec', '~> 3.13'
   gem 'rspec_junit_formatter', '~> 0.6.0', require: false
-  gem 'rubocop', '~> 1.64', require: false
+  gem 'rubocop', '~> 1.88', require: false
   gem 'rubocop-performance', '~> 1.21', require: false
   gem 'rubocop-rake', '~> 0.6.0', require: false
   gem 'rubocop-rspec', '~> 3.0', require: false
