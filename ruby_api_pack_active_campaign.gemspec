@@ -10,8 +10,10 @@ Gem::Specification.new do |spec|
   spec.homepage    = 'https://phcdevworks.com/'
 
   spec.summary     = 'API Pack for Active Campaign API.'
-  spec.description = 'RubyApiPackActiveCampaign is a Ruby gem designed to simplify interaction with the ActiveCampaign API.
-  This gem offers an easy-to-use interface for managing contacts, lists, and automations within ActiveCampaign.'
+  spec.description = 'RubyApiPackActiveCampaign is a Ruby gem designed to simplify interaction with the ' \
+                     'ActiveCampaign API, offering an easy-to-use interface for managing contacts, lists, ' \
+                     'and automations within ActiveCampaign. It is built on ruby_api_pack_core for its ' \
+                     'shared HTTP client and response handling.'
   spec.license = 'MIT'
 
   # Specify the required Ruby version

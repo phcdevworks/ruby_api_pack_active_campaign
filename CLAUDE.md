@@ -25,12 +25,8 @@ authority to the human maintainer.
 
 ## Development Workflow
 
-```bash
-bundle install
-bundle exec rspec
-bundle exec rubocop
-gem build ruby_api_pack_active_campaign.gemspec
-```
+Run `bundle install`, then the validation gate described in
+[AGENTS.md](AGENTS.md).
 
 ## Ruby Gem Contract
 
@@ -86,6 +82,5 @@ Update:
 
 1. Update `lib/ruby_api_pack_active_campaign/version.rb`.
 2. Move changelog notes from `[Unreleased]` into a dated version section.
-3. Run `bundle exec rspec`.
-4. Run `bundle exec rubocop`.
-5. Build and publish only when the maintainer explicitly approves.
+3. Run the validation gate described in [AGENTS.md](AGENTS.md).
+4. Build and publish only when the maintainer explicitly approves.
