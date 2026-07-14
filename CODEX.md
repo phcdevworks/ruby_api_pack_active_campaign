@@ -13,10 +13,8 @@ merge, tag, publish, and release decisions.
 2. Read the relevant source, specs, and docs before editing.
 3. Make focused changes using existing Ruby and RSpec patterns.
 4. Update README, changelog, and AI docs when public guidance changes.
-5. Run `bundle exec rspec` and `bundle exec rubocop` when feasible.
-6. Build with `gem build ruby_api_pack_active_campaign.gemspec` when packaging
-   or release metadata changed.
-7. Report any validation that could not be run.
+5. Run the validation gate described in [AGENTS.md](AGENTS.md) when feasible.
+6. Report any validation that could not be run.
 
 ## Documentation Scope
 
@@ -48,11 +46,7 @@ When reviewing changes, Codex checks:
 
 ## Validation Commands
 
-```bash
-bundle exec rspec
-bundle exec rubocop
-gem build ruby_api_pack_active_campaign.gemspec
-```
+Run the validation gate described in [AGENTS.md](AGENTS.md).
 
 ## Hard Limits
 

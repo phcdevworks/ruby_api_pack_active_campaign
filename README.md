@@ -1,5 +1,13 @@
 # Ruby API Pack ActiveCampaign
 
+`ruby_api_pack_active_campaign` is a Ruby gem designed to simplify interaction
+with the ActiveCampaign API. It offers an easy-to-use interface for managing
+contacts, lists, and automations within ActiveCampaign.
+
+Maintained by [PHCDevworks](https://go.phcdev.co). It is built on
+`ruby_api_pack_core`, which supplies its shared HTTP client, response
+validation, and configuration pattern.
+
 ## Repository Snapshot
 
 | Field | Value |
