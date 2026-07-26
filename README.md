@@ -58,7 +58,7 @@ consume ActiveCampaign without duplicating low-level request code.
 [Changelog](CHANGELOG.md) | [Roadmap](ROADMAP.md) |
 [Security Policy](SECURITY.md) | [AI Guide](AGENTS.md)
 
-## Source of Truth
+## Source Of Truth
 
 The gem's public behavior is defined by its configuration object, connection
 wrapper, contact API helpers, and specs. Keep those surfaces aligned whenever an
@@ -98,6 +98,22 @@ gem build ruby_api_pack_active_campaign.gemspec
 - User-facing Rails controllers or UI components
 - Storage of production credentials or API tokens
 - A complete wrapper for every ActiveCampaign endpoint
+
+## When To Use This Gem
+
+- You are building a Rails or Ruby application that needs ActiveCampaign
+  contact management and want configuration, connection, and error handling
+  provided for you.
+- You want consistent HTTParty-based request behavior instead of calling the
+  ActiveCampaign API directly.
+
+## When Not To Use This Gem
+
+- You need full coverage of every ActiveCampaign endpoint — this gem covers
+  contact helpers only.
+- You want to manage ActiveCampaign account setup, billing, lists,
+  automations, or dashboard configuration — those stay in the ActiveCampaign
+  dashboard.
 
 ## Installation
 
@@ -261,6 +277,25 @@ Spectre and Rails/Ruby workspaces:
   GitHub-integrated assistant guidance.
 - `CHANGELOG.md`, `ROADMAP.md`, and `TODO.md` keep release and planning context
   visible.
+
+## AI And Automation Boundaries
+
+Claude Code (`claude-sonnet-4-6`) is the primary development agent for this
+repository. Codex handles releases, including cutting tagged releases and
+GitHub Releases. GitHub Copilot and Jules provide additional development
+support per their scoped task lists.
+
+All AI agents with repository access (Claude Code, Codex, Copilot, Jules)
+have commit, push, and tag authority in this repository. `gem push`
+(RubyGems publish) remains Bradley Potts's sole authority. See
+[AGENTS.md](AGENTS.md) for the full commit-policy and release-authority
+grant.
+
+**Protected from automated change:** the vendor-specific-only scope (shared
+HTTP plumbing changes belong in `ruby_api_pack_core`, not here), and API
+tokens, production account URLs, contact data, or sensitive response bodies
+in logs/fixtures/docs. See [AGENTS.md](AGENTS.md) for full agent governance
+and boundary rules.
 
 ## Contributing
 
