@@ -26,6 +26,6 @@
 - [x] Keep CI, Codecov, and publish workflows aligned with release docs —
       removed stray `.github/workflows/main.yml` (bundler-gem scaffold
       targeting a nonexistent `master` branch, duplicated `test.yml`).
-- [ ] Confirm supported Ruby versions in CI match the gemspec — gemspec
-      requires `>= 3.0.0`, but CI only tests 3.1 and 3.3.x; either lower the
-      matrix to include 3.0 or raise `required_ruby_version` to match CI.
+- [x] Confirm supported Ruby versions in CI match the gemspec — raised
+      `required_ruby_version` to `>= 3.3.0` to match the CircleCI matrix
+      (3.3.4, 3.4), shipped in 0.2.0.
