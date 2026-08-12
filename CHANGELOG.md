@@ -8,7 +8,7 @@ reflects gem releases published to RubyGems.
 
 ## [0.2.0] - 2026-07-12
 
-**Release Title:** Phase 0 - ruby_api_pack_core Alignment and CI Modernization
+**Release Title:** ruby_api_pack_core Alignment and CI Modernization
 
 Contract change type: breaking (internal only)
 
@@ -114,7 +114,7 @@ Contract change type: breaking (internal only)
 
 ## [0.1.0] - 2024-10-28
 
-**Release Title:** Phase 0 - Initial ActiveCampaign Contacts API Client
+**Release Title:** Initial ActiveCampaign Contacts API Client
 
 Contract change type: initial release
 
