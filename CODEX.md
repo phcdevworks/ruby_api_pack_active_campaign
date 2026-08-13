@@ -65,15 +65,16 @@ gem build ruby_api_pack_active_campaign.gemspec
 2. Move `[Unreleased]` notes in `CHANGELOG.md` into a new versioned entry:
    `## [<version>] - <YYYY-MM-DD>`, with a release title line in the format
    `**Release Title:** <short title>`, where `<short title>` is a concise
-   summary of what shipped.
+   summary of what shipped without a roadmap phase or version prefix.
 3. Run the validation gate described in [AGENTS.md](AGENTS.md) plus
    `gem build ruby_api_pack_active_campaign.gemspec` — must pass clean.
 4. Stage and commit the version bump and changelog update.
 5. Create the git tag: `git tag v<version>` (matching `version.rb` exactly),
    then push the commit and tag.
 6. Publish the GitHub Release from that tag: `gh release create v<version>
-   --title "v<version>: <short title>" --notes-file` (extract the
-   new version's changelog section, or `--notes` inline for a short release).
+   --title "<short title>" --notes-file` (extract the new version's changelog
+   section, or `--notes` inline for a short release). The GitHub Release title
+   must match the changelog release title exactly.
 7. `gem push` is **not** run by Codex — that stays with Bradley Potts.
 
 ## Hard Limits
