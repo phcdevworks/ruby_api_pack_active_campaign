@@ -78,7 +78,7 @@ GEM
     ruby_api_pack_core (0.1.0)
       httparty (~> 0.24.2)
       oj (~> 3.17)
-    simplecov (1.1.0)
+    simplecov (1.2.0)
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.2.0)
@@ -97,7 +97,7 @@ DEPENDENCIES
   rubocop-rake (~> 0.7.1)
   rubocop-rspec (~> 3.10)
   ruby_api_pack_active_campaign!
-  simplecov (~> 1.1)
+  simplecov (~> 1.2)
 
 BUNDLED WITH
   4.0.18
